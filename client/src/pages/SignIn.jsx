@@ -12,7 +12,6 @@ export default function SignIn() {
       ...formData,
       [e.target.id]: e.target.value,
     });
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -27,7 +26,6 @@ export default function SignIn() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      console.log(data.success);
       if (data.success === false) {
         setIsLoading(false);
         setError(data.message);
